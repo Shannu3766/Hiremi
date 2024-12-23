@@ -85,6 +85,11 @@ flutter:
       - assets/jobstatusprofile_3.png
       - assets/jobstatusprofile_4.png
       - assets/images/nojobs.png
+      - assets/askexpert_1.png
+      - assets/askexpert_2.png
+      - assets/askexpert_3.png
+      - assets/askexpert_4.png
+      - assets/askexpert_5.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

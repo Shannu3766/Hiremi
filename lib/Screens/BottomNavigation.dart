@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hiremi/Screens/askexpert.dart';
 import 'package:hiremi/Screens/drawer.dart';
 import 'package:hiremi/Screens/jobs.dart';
 import 'package:hiremi/Screens/settings.dart';
@@ -20,7 +21,7 @@ class _NavigationState extends State<Navigation> {
     HomeScreen(),
     Jobs_Screen(),
     // Center(child: Text('Search Screen', style: TextStyle(fontSize: 24))),
-    Center(child: Text('Profile Screen', style: TextStyle(fontSize: 24))),
+   QueryFormScreen(),
     Statusscreen(),
     Settings()
   ];
