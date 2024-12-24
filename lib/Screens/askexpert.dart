@@ -1,6 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hiremi/Screens/drawer.dart';
+import 'package:hiremi/widgets/Notificationbutton.dart';
 
 class QueryFormScreen extends StatefulWidget {
   @override
@@ -10,15 +12,25 @@ class QueryFormScreen extends StatefulWidget {
 class _QueryFormScreenState extends State<QueryFormScreen> {
   final _formKey = GlobalKey<FormState>();
   String? _selectedGender;
-  String? _queryType;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: DrawerWidget(),
       appBar: AppBar(
         title: Text('Ask Expert'),
         centerTitle: true,
         backgroundColor: const Color.fromARGB(174, 15, 60, 201),
+        actions: [
+          Column(
+            children: [
+              Notificationbutton(
+                outlinecolor: Colors.white,
+                icon: Icons.notifications,
+              )
+            ],
+          )
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -162,9 +174,7 @@ class _QueryFormScreenState extends State<QueryFormScreen> {
                           ),
                         ],
                         onChanged: (value) {
-                          setState(() {
-                            _queryType = value;
-                          });
+                          setState(() {});
                         },
                         validator: (value) {
                           if (value == null) {

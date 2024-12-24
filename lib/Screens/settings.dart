@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hiremi/Screens/drawer.dart';
+import 'package:hiremi/widgets/Notificationbutton.dart';
 
 class Settings extends StatefulWidget {
   const Settings({super.key});
@@ -17,6 +18,16 @@ class _SettingsState extends State<Settings> {
       appBar: AppBar(
         centerTitle: true,
         title: const Text('Settings'),
+        actions: [
+          Column(
+            children: [
+              Notificationbutton(
+                outlinecolor: Colors.black,
+                icon: Icons.notifications,
+              )
+            ],
+          )
+        ],
       ),
       body: Column(
         children: [profile()],

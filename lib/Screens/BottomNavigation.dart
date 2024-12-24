@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:hiremi/Screens/askexpert.dart';
 import 'package:hiremi/Screens/drawer.dart';
 import 'package:hiremi/Screens/jobs.dart';
@@ -22,7 +23,6 @@ class _NavigationState extends State<Navigation> {
     Jobs_Screen(
       index: 1,
     ),
-    // Center(child: Text('Search Screen', style: TextStyle(fontSize: 24))),
     QueryFormScreen(),
     Statusscreen(),
     Settings()
@@ -31,7 +31,6 @@ class _NavigationState extends State<Navigation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // drawer: DrawerWidget(),
       body: _screens[widget.currentindex], // Display the selected screen
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: widget.currentindex,
@@ -42,29 +41,57 @@ class _NavigationState extends State<Navigation> {
         },
         type: BottomNavigationBarType.fixed,
         backgroundColor: Colors.white,
-        selectedItemColor: Colors.blue,
-        unselectedItemColor: Colors.black54,
+        selectedItemColor:
+            Color.fromARGB(255, 0, 117, 255), // Selected icon color
+        unselectedItemColor: Colors.black54, // Unselected icon color
         showSelectedLabels: true,
         showUnselectedLabels: true,
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: SvgPicture.asset(
+              'assets/naviagtion/home.svg',
+              color: widget.currentindex == 0
+                  ? Color.fromARGB(255, 0, 117, 255)
+                  : Colors.black54, // Adjust color based on selection
+              fit: BoxFit.contain,
+            ),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.work),
+            icon: SvgPicture.asset(
+              'assets/naviagtion/jobs.svg',
+              color: widget.currentindex == 1
+                  ? Color.fromARGB(255, 0, 117, 255)
+                  : Colors.black54, // Adjust color based on selection
+              fit: BoxFit.contain,
+            ),
             label: 'Jobs',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.support_agent),
+            icon: SvgPicture.asset(
+              'assets/naviagtion/Group.svg',
+              color: widget.currentindex == 2
+                  ? Color.fromARGB(255, 0, 117, 255)
+                  : Colors.black54, // Adjust color based on selection
+              fit: BoxFit.contain,
+            ),
             label: 'Ask Expert',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.assignment),
+            icon: SvgPicture.asset(
+              'assets/naviagtion/status.svg',
+              color: widget.currentindex == 3
+                  ? Color.fromARGB(255, 0, 117, 255)
+                  : Colors.black54, // Adjust color based on selection
+              fit: BoxFit.contain,
+            ),
             label: 'Status',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.abc),
+            icon: SvgPicture.asset(
+              'assets/naviagtion/360.svg',
+              fit: BoxFit.contain,
+            ),
             label: '360',
           ),
         ],
@@ -72,6 +99,3 @@ class _NavigationState extends State<Navigation> {
     );
   }
 }
-
-
-//

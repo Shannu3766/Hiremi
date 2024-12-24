@@ -33,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 1, 136, 234),
+                  color: Color.fromARGB(255, 16, 60, 201),
                   // borderRadius: BorderRadius.circular(10),
                 ),
                 child: Padding(
@@ -101,7 +101,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       borderRadius: BorderRadius.circular(68),
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
                   child: Text("Continue")),
             ],
           ),

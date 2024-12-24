@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hiremi/Screens/chatscreen.dart';
 import 'package:hiremi/classes/jobstatus.dart';
 
 class SubmissionStatus extends StatefulWidget {
@@ -57,11 +58,19 @@ class _SubmissionStatusState extends State<SubmissionStatus> {
                       ),
                       child: Row(
                         children: [
-                          Container(
-                            width: MediaQuery.of(context).size.width - 120,
-                            child: Padding(
-                              padding: const EdgeInsets.only(left: 8.0),
-                              child: Text(widget.status.message),
+                          GestureDetector(
+                            onTap: () {
+                              print(
+                                  "afsdknkadsf.....................................");
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => ChatScreen()));
+                            },
+                            child: Container(
+                              width: MediaQuery.of(context).size.width - 120,
+                              child: Padding(
+                                padding: const EdgeInsets.only(left: 8.0),
+                                child: Text(widget.status.message),
+                              ),
                             ),
                           ),
                           GestureDetector(

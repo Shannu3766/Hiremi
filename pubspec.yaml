@@ -95,6 +95,11 @@ flutter:
       - assets/icons/work.png
       - assets/icons/target.png
       - assets/icons/avg_pace.png
+      - assets/naviagtion/360.svg
+      - assets/naviagtion/Group.svg
+      - assets/naviagtion/home.svg
+      - assets/naviagtion/jobs.svg
+      - assets/naviagtion/status.svg
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
