@@ -19,9 +19,11 @@ class _NavigationState extends State<Navigation> {
   // List of screens for each tab
   final List<Widget> _screens = [
     HomeScreen(),
-    Jobs_Screen(),
+    Jobs_Screen(
+      index: 1,
+    ),
     // Center(child: Text('Search Screen', style: TextStyle(fontSize: 24))),
-   QueryFormScreen(),
+    QueryFormScreen(),
     Statusscreen(),
     Settings()
   ];

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hiremi/Screens/drawer.dart';
 import 'package:hiremi/classes/jobwidget.dart';
+import 'package:hiremi/widgets/Notificationbutton.dart';
 import 'package:hiremi/widgets/jobscreenitem.dart';
 import 'package:flutter/material.dart';
 import 'package:hiremi/Screens/drawer.dart';
@@ -10,8 +11,8 @@ import 'package:hiremi/widgets/jobscreenitem.dart';
 import 'package:gif/gif.dart';
 
 class Jobs_Screen extends StatefulWidget {
-  const Jobs_Screen({super.key});
-
+  const Jobs_Screen({super.key, required this.index});
+  final int index;
   @override
   State<Jobs_Screen> createState() => _Jobs_ScreenState();
 }
@@ -134,6 +135,8 @@ class _Jobs_ScreenState extends State<Jobs_Screen>
               width: double.infinity,
               padding: const EdgeInsets.all(20),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
@@ -146,9 +149,11 @@ class _Jobs_ScreenState extends State<Jobs_Screen>
                     width: 246,
                   ),
                   Text(
-                      "Add your projects and experiences to \nincrease your visibility and get noticed.",
-                      style: GoogleFonts.poppins(
-                          fontSize: 14, color: Colors.grey)),
+                    "Add your projects and experiences to increase your visibility and get noticed.",
+                    style:
+                        GoogleFonts.poppins(fontSize: 14, color: Colors.grey),
+                    textAlign: TextAlign.center,
+                  ),
                   const SizedBox(height: 20),
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
@@ -180,13 +185,14 @@ class _Jobs_ScreenState extends State<Jobs_Screen>
     }).toList();
   }
 
-  int selectedjobindex = 0;
+  var selectedjobindex;
   int selectedtypeofjobindex = 0;
   late ScrollController _scrollController;
 
   @override
   void initState() {
     gifController = GifController(vsync: this);
+    selectedjobindex = widget.index;
     super.initState();
     filteredjobs = joblistfiltered;
     _scrollController = ScrollController();
@@ -206,57 +212,26 @@ class _Jobs_ScreenState extends State<Jobs_Screen>
     return Scaffold(
       drawer: const DrawerWidget(),
       appBar: AppBar(
-        // backgroundColor: Color.fromARGB(255, 15, 60, 201),
-        elevation: 0,
-        title: Text(
-          jobcategories[selectedjobindex],
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
+          // backgroundColor: Color.fromARGB(255, 15, 60, 201),
+          elevation: 0,
+          title: Text(
+            jobcategories[selectedjobindex],
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
           ),
-        ),
-        centerTitle: true,
-        actions: [
-          Column(
-            children: [
-              Stack(
-                alignment: Alignment.topRight,
-                children: [
-                  IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.notifications,
-                      // color: Colors.white,
-                    ),
-                  ),
-                  Positioned(
-                    right: 12,
-                    top: 10,
-                    child: Container(
-                      width: 12,
-                      height: 12,
-                      decoration: const BoxDecoration(
-                        color: Colors.red,
-                        shape: BoxShape.circle,
-                      ),
-                      child: const Center(
-                        child: Text(
-                          '3',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 8,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          )
-        ],
-      ),
+          centerTitle: true,
+          actions: [
+            Column(
+              children: [
+                Notificationbutton(
+                  outlinecolor: Colors.black,
+                  icon: Icons.notification_add,
+                )
+              ],
+            )
+          ]),
       body: SingleChildScrollView(
         controller: _scrollController,
         child: Column(
@@ -271,41 +246,40 @@ class _Jobs_ScreenState extends State<Jobs_Screen>
                 itemCount: jobcategories.length,
                 itemBuilder: (context, index) {
                   final isSelected = index == selectedjobindex;
-                  return GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          selectedjobindex = index;
-                          filteredjobs = joblistfiltered;
-                          _scrollController.animateTo(
-                            0.0,
-                            duration: const Duration(milliseconds: 500),
-                            curve: Curves.easeInOut,
-                          );
-                        });
-                      },
-                      child: Container(
-                        margin: const EdgeInsets.all(10),
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 10,
-                          vertical: 3,
-                        ),
-                        decoration: BoxDecoration(
-                          color: isSelected
-                              ? Colors.blueAccent
-                              : const Color.fromARGB(255, 255, 255, 255),
-                          borderRadius: BorderRadius.circular(5),
-                        ),
-                        child: Center(
-                          child: Text(
-                            jobcategories[index],
-                            style: TextStyle(
-                              color: isSelected ? Colors.white : Colors.black,
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
+                  return Container(
+                    margin: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      color: isSelected
+                          ? Color.fromARGB(255, 15, 60, 201)
+                          : const Color.fromARGB(255, 255, 255, 255),
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    child: GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            selectedjobindex = index;
+                            filteredjobs = joblistfiltered;
+                            _scrollController.animateTo(
+                              0.0,
+                              duration: const Duration(milliseconds: 500),
+                              curve: Curves.easeInOut,
+                            );
+                          });
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Center(
+                            child: Text(
+                              jobcategories[index],
+                              style: GoogleFonts.inter(
+                                color: isSelected ? Colors.white : Colors.black,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
                           ),
-                        ),
-                      ));
+                        )),
+                  );
                 },
               ),
             ),
@@ -331,6 +305,8 @@ class _Jobs_ScreenState extends State<Jobs_Screen>
                     ),
                   )
                 : Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -381,7 +357,7 @@ class _Jobs_ScreenState extends State<Jobs_Screen>
                             height: 50,
                             width: 50,
                             decoration: BoxDecoration(
-                              color: Colors.blueAccent,
+                              color: Color.fromARGB(255, 15, 60, 201),
                               borderRadius: BorderRadius.circular(15),
                             ),
                             child: IconButton(
@@ -412,11 +388,11 @@ class _Jobs_ScreenState extends State<Jobs_Screen>
                                   margin: const EdgeInsets.all(10),
                                   padding: const EdgeInsets.symmetric(
                                     horizontal: 6,
-                                    vertical: 3,
+                                    vertical: 6,
                                   ),
                                   decoration: BoxDecoration(
                                     color: isSelected
-                                        ? Colors.blueAccent
+                                        ? Color.fromARGB(255, 15, 60, 201)
                                         : const Color.fromARGB(
                                             255, 255, 255, 255),
                                     borderRadius: BorderRadius.circular(5),
@@ -424,12 +400,12 @@ class _Jobs_ScreenState extends State<Jobs_Screen>
                                   child: Center(
                                     child: Text(
                                       typeofjob[index],
-                                      style: TextStyle(
+                                      style: GoogleFonts.inter(
                                         color: isSelected
                                             ? Colors.white
-                                            : Colors.black,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.bold,
+                                            : Colors.grey,
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w600,
                                       ),
                                     ),
                                   ),
@@ -437,7 +413,9 @@ class _Jobs_ScreenState extends State<Jobs_Screen>
                           },
                         ),
                       ),
-                      const Text("Available internships"),
+                      Header(
+                          title:
+                              "Available internships (${filteredjobs.length})"),
                       ListView.builder(
                         // controller: _scrollController,
                         shrinkWrap: true,
@@ -452,6 +430,25 @@ class _Jobs_ScreenState extends State<Jobs_Screen>
                   ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class Header extends StatelessWidget {
+  final String title;
+  const Header({super.key, required this.title});
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10),
+      child: Text(
+        title,
+        style: GoogleFonts.poppins(
+          fontSize: 16,
+          fontWeight: FontWeight.w500,
+        ),
+        textAlign: TextAlign.left,
       ),
     );
   }

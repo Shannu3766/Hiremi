@@ -54,7 +54,7 @@ class _QueryFormScreenState extends State<QueryFormScreen> {
                             borderSide: BorderSide(
                               color: Color.fromARGB(
                                   255, 15, 60, 201), // Default border color
-                              width: 2.0,
+                              width: 10.0,
                             ),
                           ),
                           focusedBorder: OutlineInputBorder(

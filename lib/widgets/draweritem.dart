@@ -27,17 +27,18 @@ class _DrawerItemState extends State<DrawerItem> {
           borderRadius: BorderRadius.circular(4.0),
         ),
         leading: Icon(widget.icon,
-            color: Colors.black), // Customize icon color if needed
+            size: 24,
+            color: Color.fromARGB(
+                255, 15, 60, 201)), // Customize icon color if needed
         title: Text(
           widget.desc,
           style: const TextStyle(color: Colors.black), // Customize text style
         ),
         onTap: () {
-          // Update the state of the app
-          // Then close the drawer
           Navigator.pop(context);
         },
-        trailing: const Icon(Icons.arrow_forward_ios, color: Colors.black),
+        trailing: const Icon(Icons.keyboard_arrow_right,
+            color: Color.fromARGB(255, 22, 62, 200), size: 24),
       ),
     );
   }

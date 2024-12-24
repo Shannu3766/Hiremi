@@ -5,22 +5,22 @@ import 'package:hiremi/widgets/Carouselitem.dart';
 class CarouselSliderfeatured extends StatelessWidget {
   final List<Carouselitem> items = [
     const Carouselitem(
-      title: 'Hiremi 360',
+      title: 'Hiremi',
       image: 'assets/images/slider_1.png',
       description: 'Career ka backup,\n,Success ka gaurantee',
     ),
     const Carouselitem(
-      title: 'Title 2',
+      title: 'Hiremi',
       image: 'assets/images/slider_1.png',
-      description: 'Description for Title 2',
+      description: 'Career ka backup,\n,Success ka gaurantee',
     ),
     const Carouselitem(
-      title: 'Title 3',
+      title: 'Hiremi',
       image: 'assets/images/slider_1.png',
-      description: 'Description for Title 3',
+      description: 'Career ka backup,\n,Success ka gaurantee',
     ),
     const Carouselitem(
-      title: 'Title 4',
+      title: 'Hiremi',
       image: 'assets/images/slider_1.png',
       description: 'Career ka backup,\n,Success ka gaurantee',
     ),

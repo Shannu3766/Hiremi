@@ -32,6 +32,7 @@ class profile extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
+        decoration: BoxDecoration(color: Color.fromARGB(255, 245, 245, 245)),
         margin: EdgeInsets.symmetric(
           horizontal: 20,
         ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:hiremi/widgets/draweritem.dart';
 
 class DrawerWidget extends StatefulWidget {
@@ -18,12 +19,13 @@ class _DrawerWidgetState extends State<DrawerWidget> {
         children: [
           Container(
             margin:
-                EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.1),
+                EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.05),
             child: Padding(
               padding: const EdgeInsets.all(10),
               child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                 decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 209, 228, 255),
+                  color: const Color.fromARGB(255, 15, 60, 201),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 margin: EdgeInsets.symmetric(
@@ -34,19 +36,25 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                   children: [
                     Container(
                       margin: EdgeInsets.only(left: screenWidth * 0.07),
-                      child: const Column(
+                      child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                             "Harsh Pawar",
                             textAlign: TextAlign.left,
-                            style: TextStyle(fontSize: 16),
+                            style: GoogleFonts.poppins(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400,
+                                color: Colors.white),
                           ),
                           Text(
                             "App id: 123456789",
                             textAlign: TextAlign.left,
-                            style: TextStyle(fontSize: 14, color: Colors.grey),
+                            style: GoogleFonts.poppins(
+                                fontSize: 8,
+                                fontWeight: FontWeight.w400,
+                                color: Colors.white),
                           ),
                         ],
                       ),
@@ -55,10 +63,10 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                     Container(
                       decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(14),
                       ),
                       margin: EdgeInsets.only(right: screenWidth * 0.07),
-                      child: const Padding(
+                      child: Padding(
                         padding:
                             EdgeInsets.symmetric(horizontal: 8.0, vertical: 4),
                         child: Row(
@@ -66,12 +74,15 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                             Icon(
                               Icons.check_circle,
                               color: Colors.green,
-                              size: 16,
+                              size: 7,
                             ),
                             SizedBox(width: 4),
                             Text(
                               "Verified",
-                              style: TextStyle(color: Colors.green),
+                              style: GoogleFonts.poppins(
+                                  fontSize: 7,
+                                  fontWeight: FontWeight.w400,
+                                  color: Color.fromARGB(255, 52, 173, 120)),
                             )
                           ],
                         ),
@@ -85,7 +96,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
           SizedBox(height: MediaQuery.of(context).size.height * 0.04),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.blue,
+              backgroundColor: Color.fromARGB(255, 15, 60, 201),
               // onPrimary: Colors.white,
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               shape: RoundedRectangleBorder(
@@ -96,7 +107,10 @@ class _DrawerWidgetState extends State<DrawerWidget> {
             onPressed: () {},
             child: Text(
               "Edit  Your Profile",
-              style: TextStyle(color: Colors.white),
+              style: GoogleFonts.poppins(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w400,
+                  color: Colors.white),
             ),
           ),
           Divider(
@@ -107,8 +121,8 @@ class _DrawerWidgetState extends State<DrawerWidget> {
           ),
           DrawerItem(desc: "Your Profile", icon: Icons.person),
           DrawerItem(desc: "Settings", icon: Icons.settings),
-          DrawerItem(desc: "About App", icon: Icons.help),
-          DrawerItem(desc: "Help and Support", icon: Icons.logout),
+          DrawerItem(desc: "About App", icon: Icons.assignment),
+          DrawerItem(desc: "Help and Support", icon: Icons.quickreply),
         ],
       ),
     );

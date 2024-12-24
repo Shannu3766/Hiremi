@@ -6,6 +6,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:hiremi/Screens/notificationsceen.dart';
 import 'package:hiremi/widgets/Carouselitem.dart';
 import 'package:hiremi/widgets/CarouselSliderfeatured.dart';
+import 'package:hiremi/widgets/Notificationbutton.dart';
 import 'package:hiremi/widgets/featured.dart';
 import 'package:hiremi/widgets/jobsforyou.dart';
 
@@ -131,44 +132,10 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: [
           Column(
             children: [
-              Stack(
-                alignment: Alignment.topRight,
-                children: [
-                  IconButton(
-                    onPressed: () {
-                      // Navia
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => NotificationScreen()));
-                    },
-                    icon: const Icon(
-                      Icons.notifications,
-                      color: Colors.white,
-                    ),
-                  ),
-                  Positioned(
-                    right: 12,
-                    top: 10,
-                    child: Container(
-                      width: 12,
-                      height: 12,
-                      decoration: const BoxDecoration(
-                        color: Colors.red,
-                        shape: BoxShape.circle,
-                      ),
-                      child: const Center(
-                        child: Text(
-                          '3',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 8,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+              Notificationbutton(
+                outlinecolor: Colors.white,
+                icon: Icons.notifications,
+              )
             ],
           )
         ],
@@ -197,16 +164,24 @@ class _HomeScreenState extends State<HomeScreen> {
                         children: [
                           Container(
                             margin: EdgeInsets.only(left: Screen_width * 0.07),
-                            child: const Column(
+                            child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
                                   "Harsh Pawar",
                                   textAlign: TextAlign.left,
+                                  style: GoogleFonts.poppins(
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 20,
+                                      color: Colors.white),
                                 ),
                                 Text(
                                   "App id :123456789",
                                   textAlign: TextAlign.left,
+                                  style: GoogleFonts.poppins(
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 10,
+                                      color: Colors.white),
                                 )
                               ],
                             ),
@@ -217,15 +192,21 @@ class _HomeScreenState extends State<HomeScreen> {
                                 color: Colors.white,
                                 borderRadius: BorderRadius.circular(10)),
                             margin: EdgeInsets.only(right: Screen_width * 0.07),
-                            child: const Padding(
-                              padding: EdgeInsets.symmetric(
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
                                   horizontal: 8.0, vertical: 1),
                               child: Row(
                                 children: [
-                                  Icon(Icons.abc),
+                                  const Icon(Icons.verified,
+                                      color: Color.fromARGB(255, 15, 60, 201),
+                                      size: 15),
                                   Text(
                                     "Verified",
-                                    style: TextStyle(color: Colors.green),
+                                    style: GoogleFonts.poppins(
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 15,
+                                        color:
+                                            Color.fromARGB(255, 15, 60, 201)),
                                   )
                                 ],
                               ),
@@ -243,8 +224,8 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Text(
                 "Jobs For You",
                 style: GoogleFonts.roboto(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
             ),

@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      home: Navigation(currentindex: 2),
+      home: Navigation(currentindex: 1),
     );
   }
 }

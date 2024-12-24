@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:hiremi/classes/jobitem.dart';
 
 class Jobitemdesign extends StatelessWidget {
@@ -21,7 +22,8 @@ class Jobitemdesign extends StatelessWidget {
             children: [
               Text(
                 item.title,
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                style: GoogleFonts.inter(
+                    fontSize: 14, fontWeight: FontWeight.w600),
               ),
               Spacer(),
               Padding(
@@ -31,10 +33,14 @@ class Jobitemdesign extends StatelessWidget {
                     const Icon(
                       Icons.location_on,
                       color: Colors.grey,
+                      size: 8,
                     ),
                     Text(
                       item.location,
-                      style: const TextStyle(color: Colors.grey),
+                      style: GoogleFonts.inter(
+                          fontSize: 8,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.grey),
                     ),
                   ],
                 ),
@@ -46,10 +52,8 @@ class Jobitemdesign extends StatelessWidget {
             children: [
               Text(
                 item.subtitle,
-                style: const TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: GoogleFonts.inter(
+                    fontSize: 14, fontWeight: FontWeight.w600),
                 textAlign: TextAlign.left,
               ),
             ],
@@ -58,71 +62,72 @@ class Jobitemdesign extends StatelessWidget {
           Row(
             children: [
               const Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(5.0),
                 child: Icon(
                   Icons.circle,
                   size: 10,
-                  color: Colors.grey,
+                  color: Color.fromARGB(255, 94, 97, 106),
                 ),
               ),
               Text(
                 item.position,
-                style: const TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.grey,
-                ),
+                style: GoogleFonts.notoSans(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w400,
+                    color: Color.fromARGB(255, 143, 146, 152)),
                 textAlign: TextAlign.left,
               ),
               const Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(5.0),
                 child: Icon(
                   Icons.circle,
                   size: 10,
-                  color: Colors.grey,
+                  color: Color.fromARGB(255, 94, 97, 106),
                 ),
               ),
               Text(
                 item.role,
-                style: const TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.grey,
-                ),
+                style: GoogleFonts.notoSans(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w400,
+                    color: Color.fromARGB(255, 143, 146, 152)),
                 textAlign: TextAlign.left,
               ),
               const Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(5.0),
                 child: Icon(
                   Icons.circle,
                   size: 10,
-                  color: Colors.grey,
+                  color: Color.fromARGB(255, 94, 97, 106),
                 ),
               ),
               Text(
                 item.mode,
-                style: const TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.grey,
-                ),
+                style: GoogleFonts.notoSans(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w400,
+                    color: Color.fromARGB(255, 143, 146, 152)),
                 textAlign: TextAlign.left,
               ),
             ],
           ),
+          const SizedBox(height: 4),
           Row(
             children: [
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
+                  backgroundColor: Color.fromARGB(255, 15, 60, 201),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8),
                   ),
                 ),
                 onPressed: () {},
-                child: const Text(
+                child: Text(
                   'Apply Now',
-                  style: TextStyle(color: Colors.white),
+                  style: GoogleFonts.notoSans(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.white),
                 ),
               ),
               Spacer(),

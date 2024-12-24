@@ -312,11 +312,11 @@ class Traititem extends StatelessWidget {
     super.key,
     required this.color,
     required this.trait,
-    required this.icon,
+    required this.image,
   });
   final Color color;
   final String trait;
-  final Icon icon;
+  final String image;
 
   @override
   Widget build(BuildContext context) {
@@ -329,11 +329,17 @@ class Traititem extends StatelessWidget {
       ),
       child: Row(
         children: [
-          icon,
+          Image.asset(
+            image,
+            width: 8,
+          ),
           const SizedBox(width: 4),
           Text(
             trait,
-            style: const TextStyle(fontSize: 10),
+            style: GoogleFonts.poppins(
+              fontSize: 8,
+              fontWeight: FontWeight.w400,
+            ),
           ),
         ],
       ),
@@ -476,22 +482,22 @@ class jobheader extends StatelessWidget {
                 ),
                 const SizedBox(height: 12),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Traititem(
-                      color: const Color(0xFFFFF6E5),
-                      trait: job.mode,
-                      icon: const Icon(Icons.work, size: 16),
-                    ),
                     Traititem(
                       color: const Color(0xFFFFEEE5),
                       trait: job.position,
-                      icon: const Icon(Icons.access_time, size: 16),
+                      image: "assets/icons/shop.png",
+                    ),
+                    Traititem(
+                      color: const Color(0xFFFFF6E5),
+                      trait: job.mode,
+                      image: "assets/icons/alarm.png",
                     ),
                     Traititem(
                       color: const Color(0xFFFFE5EE),
                       trait: job.Experience,
-                      icon: const Icon(Icons.business_center, size: 16),
+                      image: "assets/icons/work.png",
                     ),
                   ],
                 ),
@@ -501,32 +507,26 @@ class jobheader extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        Icon(
-                          job.isactivelyrecruiting
-                              ? Icons.check_circle
-                              : Icons.cancel,
-                          size: 16,
-                          color: job.isactivelyrecruiting
-                              ? Colors.green
-                              : Colors.red,
-                        ),
+                        Image.asset("assets/icons/target.png"),
                         const SizedBox(width: 6),
                         Text(
-                          job.isactivelyrecruiting
-                              ? "Actively Recruiting"
-                              : "Not Recruiting",
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: job.isactivelyrecruiting
-                                ? Colors.green
-                                : Colors.red,
-                          ),
+                          "Actively Recruiting",
+                          style: GoogleFonts.poppins(
+                              fontSize: 8,
+                              fontWeight: FontWeight.w400,
+                              color: Color.fromARGB(255, 52, 173, 120)),
                         ),
                       ],
                     ),
+                    const Spacer(),
+                    Image.asset("assets/icons/avg_pace.png"),
+                    SizedBox(width: 4),
                     Text(
-                      "${job.lastrecruiting} ago",
-                      style: const TextStyle(fontSize: 12, color: Colors.grey),
+                      "${job.lastrecruiting}",
+                      style: GoogleFonts.poppins(
+                          fontSize: 8,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.grey),
                     ),
                   ],
                 ),
@@ -536,16 +536,19 @@ class jobheader extends StatelessWidget {
                     onApply(job);
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue,
+                    backgroundColor: Color.fromARGB(255, 15, 60, 201),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8.0),
                     ),
                     padding: const EdgeInsets.symmetric(
                         vertical: 12, horizontal: 24),
                   ),
-                  child: const Text(
+                  child: Text(
                     "Apply Now",
-                    style: TextStyle(color: Colors.white, fontSize: 14),
+                    style: GoogleFonts.poppins(
+                        fontSize: 8,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.white),
                   ),
                 ),
                 const Padding(

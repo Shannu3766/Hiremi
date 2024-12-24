@@ -52,7 +52,7 @@ class jobslider extends StatelessWidget {
               item: item,
               color: items.indexOf(item) == 0
                   ? Color.fromARGB(255, 209, 228, 255)
-                  : Colors.white,
+                  : Color.fromARGB(255, 249, 250, 255),
             );
           },
         );
