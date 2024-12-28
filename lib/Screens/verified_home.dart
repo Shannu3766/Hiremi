@@ -170,8 +170,6 @@ class _HomeScreenState extends State<HomeScreen> {
               CongratulationsScreen(),
               ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    // primary: Color.fromARGB(255, 15, 60, 201),
-
                     side: BorderSide(color: Color.fromARGB(255, 1, 136, 234)),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(68),
