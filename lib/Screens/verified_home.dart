@@ -4,6 +4,7 @@ import 'package:hiremi/Screens/drawer.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:hiremi/Screens/notificationsceen.dart';
+import 'package:hiremi/Screens/showverifiedanimation.dart';
 import 'package:hiremi/widgets/Carouselitem.dart';
 import 'package:hiremi/widgets/CarouselSliderfeatured.dart';
 import 'package:hiremi/widgets/Notificationbutton.dart';
@@ -11,7 +12,8 @@ import 'package:hiremi/widgets/featured.dart';
 import 'package:hiremi/widgets/jobsforyou.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  const HomeScreen({super.key, required this.isverified});
+  final bool isverified;
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -32,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               Container(
                 width: double.infinity,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Color.fromARGB(255, 16, 60, 201),
                   // borderRadius: BorderRadius.circular(10),
                 ),
@@ -47,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         height: 110,
                       ),
                       Spacer(),
-                      SizedBox(
+                      const SizedBox(
                           child: Text(
                         "Additional benefits are \n unlocked, Independently\n Explore Hiremi.",
                         style: TextStyle(color: Colors.white, fontSize: 14),
@@ -112,6 +114,86 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  void getverified() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15),
+          ),
+          contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 0),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                width: double.infinity,
+                decoration: const BoxDecoration(
+                  color: Color.fromARGB(255, 16, 60, 201),
+                  // borderRadius: BorderRadius.circular(10),
+                ),
+                child: Stack(children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 23.0, bottom: 20),
+                    child: Row(
+                      children: [
+                        Spacer(),
+                        Image.asset(
+                          "assets/images/verifiedimg.png",
+                          width: 86,
+                          height: 110,
+                        ),
+                        Spacer(),
+                        const SizedBox(
+                            child: Text(
+                          "Not just a mile stone,but \na masterpiece of \n success",
+                          style: TextStyle(color: Colors.white, fontSize: 14),
+                        )),
+                      ],
+                    ),
+                  ),
+                  Positioned(
+                    left: 0,
+                    right: 0,
+                    top: 5,
+                    // bottom: 10,
+                    child: Container(
+                      width: double.infinity,
+                      child: Image.asset(
+                        "assets/getverified.gif",
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                ]),
+              ),
+              CongratulationsScreen(),
+              ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    // primary: Color.fromARGB(255, 15, 60, 201),
+
+                    side: BorderSide(color: Color.fromARGB(255, 1, 136, 234)),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(68),
+                    ),
+                  ),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Text(
+                    "Continue",
+                    style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 16,
+                        color: Color.fromARGB(255, 16, 60, 201)),
+                  )),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     var Screen_width = MediaQuery.of(context).size.width;
@@ -147,7 +229,8 @@ class _HomeScreenState extends State<HomeScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             GestureDetector(
-              onTap: showverified,
+              // onTap: showverified,
+              onTap: widget.isverified ? null : getverified,
               child: Container(
                   width: Screen_width,
                   height: Screen_height * 0.2,

@@ -19,7 +19,9 @@ class Navigation extends StatefulWidget {
 class _NavigationState extends State<Navigation> {
   // List of screens for each tab
   final List<Widget> _screens = [
-    HomeScreen(),
+    HomeScreen(
+      isverified: false,
+    ),
     Jobs_Screen(
       index: 1,
     ),
